@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: ${APP_USER}
+    password: ${APP_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+
+  liquibase:
+    default-schema: dicts
+    user: ${LIQUIBASE_USER}
+    password: ${LIQUIBASE_PASSWORD}
+    change-log: db/changelog/changelog.yaml
+#    change-log: classpath:resources/db.changelog/changelog.yaml
+
+mybatis:
+  type-handlers-package: mybatisdemo.mybatisdemo

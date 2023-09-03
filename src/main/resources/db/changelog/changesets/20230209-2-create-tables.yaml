@@ -1,0 +1,61 @@
+databaseChangeLog:
+
+  -  changeSet:
+       id:  2
+       author:  zavyalovartem79@gmail.com
+       changes:
+         - createTable:
+             tableName: dict
+             columns:
+               - column:
+                   name: id
+                   type: uuid
+                   defaultValue: uuid_generate_v4()
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: parent_id
+                   type: uuid
+#               - column:
+#                   name: attribute_id
+#                   type: uuid
+#                   constraints:
+#                     nullable: false
+#               - column:
+#                   name: attribute_value_id
+#                   type: uuid
+         - createTable:
+             tableName: attributes
+             columns:
+               - column:
+                   name: id
+                   type: uuid
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: name
+                   type: varchar
+         - createTable:
+             tableName: attribute_value
+             columns:
+               - column:
+                   name: id
+                   type: uuid
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: attribute_id
+                   type: uuid
+                   constraints:
+                     foreignKeyName: fk_attribute_to_attribute_value
+               - column:
+                   name: owner_id
+                   type: uuid
+                   constraints:
+                     foreignKeyName: fk_entity_attribute_value
+               - column:
+                   name: value
+                   type: varchar

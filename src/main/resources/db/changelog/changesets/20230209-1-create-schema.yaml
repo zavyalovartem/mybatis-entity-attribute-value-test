@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: zavyalovartem79@gmail.com
+      changes:
+        - sql:
+            dbms: 'postgresql'
+            sql: CREATE SCHEMA IF NOT EXISTS dicts;
